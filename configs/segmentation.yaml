@@ -1,0 +1,67 @@
+dataset:
+  root: data/segmentation
+  format: directory
+  image_dir: images
+  mask_dir: labels
+  train_subdir: train
+  val_subdir: val
+  image_suffix: .jpg
+  mask_suffix: .png
+  palette_csv: data/segmentation/rlmd.csv
+  include_class_ids: [4, 5, 6, 7, 8, 9, 10, 16]
+  background_class_id: 0
+  binary_mask: true
+  num_classes: 2
+  class_names: [background, marking]
+  augmentation:
+    horizontal_flip: true
+    color_jitter:
+      brightness: 0.2
+      contrast: 0.2
+      saturation: 0.2
+      hue: 0.05
+    gaussian_noise: false
+
+model:
+  backbone:
+    pretrained: false
+    output_stride: 16
+  dropout: 0.1
+
+training:
+  epochs: 120
+  batch_size: 4
+  learning_rate: 0.0005
+  weight_decay: 0.0001
+  optimizer: adamw
+  scheduler:
+    type: cosine
+    t_initial: 10
+    eta_min: 0.00001
+  gradient_clip_norm: 1.0
+  num_workers: 4
+  mixed_precision: true
+  checkpoint_dir: outputs/segmentation
+  resume_from: null
+  validate_interval: 1
+  log_interval: 10
+
+loss:
+  name: focal_tversky
+  focal_gamma: 1.5
+  tversky_alpha: 0.7
+  tversky_beta: 0.3
+
+metrics:
+  evaluate_thresholds: [0.5]
+
+wandb:
+  enabled: false
+  project: isds-traffic-ai
+  run_name: null
+  entity: null
+  tags: [segmentation]
+  notes: null
+  watch: true
+  watch_log: gradients
+  watch_log_freq: 200
