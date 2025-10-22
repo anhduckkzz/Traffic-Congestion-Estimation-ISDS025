@@ -83,10 +83,10 @@ See [`data/README.md`](data/README.md) for exact folder expectations, palette ha
 ## Results
 | Component | Metric | Target (Paper) |
 |-----------|--------|----------------|
-| Road segmentation | Dice / mIoU | 75.4?% / 73.9?% |
-| Vehicle detection | mAP@50 | 83.1?% (YOLO11s finetuned) |
-| Speed estimation | % Error | 7.82?% |
-| Congestion mapping | Macro F1 | 85.3?% |
+| Road segmentation | Dice / mIoU | 75.4% / 73.9% |
+| Vehicle detection | mAP@50 | 83.1% (YOLO11s finetuned) |
+| Speed estimation | % Error | 7.82% |
+| Congestion mapping | Macro F1 | 85.3% |
 
 Actual performance depends on dataset quality, training length, and hardware.
 
