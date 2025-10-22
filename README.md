@@ -29,21 +29,28 @@ Raw Video
    +-? Window aggregator ? per-lane density, mean speed ? LoS label AF
 ```
 
-## Repository Layout
-```
-src/                  # Core Python package
-  config/                 # YAML helpers
-  data/                   # Dataset loaders and utilities
-  models/
-    segmentation/         # SEResNet34 + DeepLabV3 implementation
-    detection/            # YOLO11s wrapper + BoT-SORT streaming
-  pipeline/               # ROI, speed, and congestion modules
-  utils/                  # Logging, video helpers
-configs/                  # YAML presets for segmentation, detection, pipeline
-scripts/                  # CLI entrypoints for training and inference
-tests/                    # Unit tests covering key components
-data/README.md           # Expected dataset structure + RLMD notes
-```
+## 📁 Repository Structure
+
+```text
+Traffic-Congestion-Estimation-ISDS2025/
+├── src/                      # Core Python source package
+│   ├── config/               # YAML configuration helpers
+│   ├── data/                 # Dataset loaders, preprocessors, and utilities
+│   ├── models/               # Deep learning model definitions
+│   │   ├── segmentation/     # SEResNet34 + DeepLabV3 implementation
+│   │   └── detection/        # YOLOv11s wrapper + BoT-SORT for real-time tracking
+│   ├── pipeline/             # ROI extraction, speed estimation, and congestion logic
+│   └── utils/                # Logging, visualization, and video helper functions
+│
+├── configs/                  # YAML presets for segmentation, detection, and pipeline
+├── scripts/                  # CLI tools for training, evaluation, and inference
+├── tests/                    # Unit tests for core components
+├── data/README.md            # Notes on dataset structure and RLMD metadata
+│
+├── README.md                 # Project overview and usage instructions
+├── requirements.txt          # Python dependencies
+└── LICENSE                   # License file (if applicable)
+
 
 ## Quick Start
 ```bash
