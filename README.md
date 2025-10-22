@@ -17,17 +17,14 @@ Implementation of the ISDS2025 paper **"Towards End-to-End Traffic Congestion Es
 - Coming soon. After training your models, plug the exported checkpoints into `configs/pipeline.yaml` and use `scripts/run_pipeline.py` to generate annotated summaries per 30?s window.
 
 ## Architecture Overview
-```
-Raw Video
-   
-   +-? DeepLabV3 + SEResNet34 ? segmentation mask
-           +-? Lane ROI extractor ? ROI lines + meter/pixel
-   
-   +-? YOLO11s + BoT-SORT ? tracked vehicle trajectories
-           +-? Speed estimator ? per-track speed (km/h)
-   
-   +-? Window aggregator ? per-lane density, mean speed ? LoS label AF
-```
+
+<p align="center">
+  <img src="https://github.com/anhduckkzz/Traffic-Congestion-Estimation-ISDS025/blob/main/pipeline.jpg" 
+       alt="Pipeline Overview" 
+       width="800">
+</p>
+<p align="center"><em>Figure 1. End-to-End Traffic Congestion Estimation Pipeline.</em></p>
+
 
 ## 📁 Repository Structure
 
