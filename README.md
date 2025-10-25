@@ -13,9 +13,6 @@ Implementation of the ISDS2025 paper **"Towards End-to-End Traffic Congestion Es
 - **LoS classification**  Implements the Highway Capacity Manual thresholds with dual speed tables (two-wheel vs. four-wheel) to output congestion levels AF.
 - **Production-ready project**  Structured Python package with configs, scripts, tests, and utilities for training, inference, and evaluation.
 
-## Live Demo
-- Coming soon. After training your models, plug the exported checkpoints into `configs/pipeline.yaml` and use `scripts/run_pipeline.py` to generate annotated summaries per 30?s window.
-
 ## Architecture Overview
 
 <p align="center">
